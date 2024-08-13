@@ -10,6 +10,18 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  recado = {
+    assunto: null
+  }
+
+  constructor(
+    private crudservice: CrudService
+  ){}
+
+  enviar(){
+    this.crudservice.insert(this.recado, 'recados');
+  }
+
   perfil = {
     foto: '',
     nome: '',
