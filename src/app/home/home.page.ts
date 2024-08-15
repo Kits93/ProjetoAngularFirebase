@@ -11,7 +11,8 @@ import { MessageService } from '../services/message.service';
 })
 export class HomePage {
   recado = {
-    assunto: null
+    assunto: null,
+    mensagem: null
   }
 
   constructor(
@@ -20,11 +21,6 @@ export class HomePage {
 
   enviar(){
     this.crudservice.insert(this.recado, 'recados');
-  }
-
-  perfil = {
-    foto: '',
-    nome: '',
   }
 
 }
