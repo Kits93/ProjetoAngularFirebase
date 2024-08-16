@@ -15,12 +15,34 @@ export class HomePage {
     mensagem: null
   }
 
+  recados: any = [];
+
   constructor(
-    private crudservice: CrudService
+    public crudService: CrudService
   ){}
 
   enviar(){
-    this.crudservice.insert(this.recado, 'recados');
+    this.crudService.insert(this.recado, 'recados');
+  }
+
+  carregar(){
+    this.recados = [];
+    this.crudService.fetchAll('recados')
+    .then((response) => {
+      this.recados = response;
+      console.log(this.recados);
+    })
+    .catch((erro) => {
+      console.log(erro);
+    })
+    .finally(() => {
+      console.log('processo finalizado!');
+    })
+  }
+
+  remover(id: string){
+    this.crudService.remove(id, 'recados');
+    this.carregar();
   }
 
 }

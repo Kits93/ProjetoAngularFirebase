@@ -1,22 +1,46 @@
 <ion-content [fullscreen]="true">
 
+  <ion-button routerLink="/desenvolvedor">Desenvolvedor</ion-button>
+
+  <!-- FORMULÁRIO INSERIR -->
   <ion-row class="ion-justify-content-center">
     <ion-col size="12" size-lg=6>
-
         <ion-item>
             <ion-label>Deixe-me um recado!</ion-label>
         </ion-item>
-
         <ion-item>
             <ion-input label="Assunto" [(ngModel)]="this.recado.assunto"></ion-input>
         </ion-item>
-
         <ion-item>
           <ion-input label="Mensagem" [(ngModel)]="this.recado.mensagem"></ion-input>
         </ion-item>
-
         <ion-button (click)="enviar()">Enviar Recado!</ion-button>
     </ion-col>
   </ion-row>
+
+  <!-- LISTAGEM DAS MENSAGENS -->
+   <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-lg="6">
+
+      <ion-button (click)="carregar()">Carregar Dados</ion-button>
+      
+      <ng-container *ngIf="this.crudService.isLoading">
+        <ion-spinner></ion-spinner>
+      </ng-container>
+
+      <ng-container *ngIf="!this.crudService.isLoading">
+        <ng-container *ngFor="let recado of this.recados ">
+          <ion-item>
+            <ion-label>
+              <h3>Assunto: {{ recado.assunto }}</h3>
+              <h3>Mensagem: {{ recado.mensagem }}</h3>
+            </ion-label>
+            <ion-icon slot="end" name="trash-outline" (click)="remover(recado.id)"></ion-icon>
+          </ion-item>
+        </ng-container>
+      </ng-container>
+
+    </ion-col>
+   </ion-row>
   
 </ion-content>
