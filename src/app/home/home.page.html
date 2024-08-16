@@ -1,18 +1,52 @@
 <ion-content [fullscreen]="true">
-    <ion-row>
-        <ion-col>
 
-            <ion-item>
-                <ion-input label="Assunto" [(ngModel)]="this.recado.assunto"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-input label="Mensagem" [(ngModel)]="this.recado.mensagem"></ion-input>
-            </ion-item>
-
-            <ion-button (click)="enviar()">Enviar Mensagem</ion-button>
-
+    <!-- MENU SUPERIOR SEGMENT -->
+    <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-lg="6">
+            <ion-segment value="usuarios" (ionChange)="trocar($event)">
+                <ion-segment-button value="usuarios">
+                    <ion-label>Usuários</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="treinos">
+                    <ion-label>Treinos</ion-label>
+                </ion-segment-button>
+            </ion-segment>
         </ion-col>
     </ion-row>
+
+    <!-- VISUALIZAÇÃO USUÁRIOS -->
+     <ion-row class="ion-justify-content-center" *ngIf="this.segment == 'usuarios'">
+        <ion-col size="12" size-lg="8">
+
+            <ion-card>
+                <ion-item *ngFor="let usuario of this.usuarios">
+                    <ion-label>
+                        <h1>{{ usuario.nome }}</h1>
+                        <h3>Idade: {{ usuario.idade }}</h3>
+                        <h3>Gênero: {{ usuario.genero }}</h3>
+                    </ion-label>
+                    <ion-accordion-group>
+                        <ion-accordion value="{{ rotina.dia }}" *ngFor="let rotina of usuario.rotinas">
+                            <ion-item slot="header" color="light">
+                                <ion-label>{{ rotina.dia }}</ion-label>
+                            </ion-item>
+                            <div class="ion-padding" slot="content">Teste</div>
+                        </ion-accordion>
+                    </ion-accordion-group>
+                </ion-item>
+                
+                
+            </ion-card>
+
+
+        </ion-col>
+     </ion-row>
+
+    <!-- VISUALIZAÇÃO TREINOS -->
+    <ion-row class="ion-justify-content-center" *ngIf="this.segment == 'treinos'">
+        <ion-col size="12" size-lg="8">Treinos</ion-col>
+     </ion-row>
+
+
 
 </ion-content>
