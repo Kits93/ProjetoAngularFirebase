@@ -11,5 +11,77 @@ import { MessageService } from '../services/message.service';
 })
 export class HomePage {
 
+  segments: string = 'usuarios';
+
+  usuarios = [
+    {
+      nome: 'Seleide Silva',
+      idade: 20,
+      genero: 'Masculino',
+      rotinas: [
+        {
+          dia: 'segunda-feira',
+          treinos: [
+            'Rosca Direta',
+            'Crucifixo',
+            'Remada Sumô'
+          ]
+        },
+        {
+          dia: 'quarta-feira',
+          treinos: [
+            'Rosca Invertida',
+            'Pulley',
+            'Remada Sentada'
+          ]
+        },
+        {
+          dia: 'sexta-feira',
+          treinos: [
+            'Supino Inclinado',
+            'Bíceps Corda',
+            'Bíceps Hulk Invertido'
+          ]
+        },
+      ]
+    },
+    {
+      nome: 'Marciano Verdinho',
+      idade: 25,
+      genero: 'Masculino',
+      rotinas: [
+        {
+          dia: 'terça-feira',
+          treinos: [
+            'Pancha Redonda',
+            'Jumping Bom dia Papai',
+            'Flexão de Costas'
+          ]
+        },
+        {
+          dia: 'quinta-feira',
+          treinos: [
+            'Rosca Invertida',
+            'Pulley',
+            'Crunch'
+          ]
+        },
+        {
+          dia: 'sábado',
+          treinos: [
+            'Supino Inclinado',
+            'Bíceps Corda',
+            'Bíceps Hulk Invertido'
+          ]
+        },
+      ]
+    }
+  ]
+
+  constructor(){}
+
+  trocar(event: any){
+    this.segments = event.detail.value;
+  }
 
 }
