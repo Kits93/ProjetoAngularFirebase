@@ -15,6 +15,7 @@
           <ion-input label="Mensagem" [(ngModel)]="this.recado.mensagem"></ion-input>
         </ion-item>
         <ion-button (click)="enviar()">Enviar Recado!</ion-button>
+        <ion-button (click)="atualizar()">Atualizar Recado!</ion-button>
     </ion-col>
   </ion-row>
 
@@ -35,6 +36,7 @@
               <h3>Assunto: {{ recado.assunto }}</h3>
               <h3>Mensagem: {{ recado.mensagem }}</h3>
             </ion-label>
+            <ion-icon name="create-outline" (click)="selecionar(recado)"></ion-icon>
             <ion-icon slot="end" name="trash-outline" (click)="remover(recado.id)"></ion-icon>
           </ion-item>
         </ng-container>

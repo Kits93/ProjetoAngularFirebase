@@ -10,7 +10,11 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  
+  id: any;
+
   recado = {
+    id: null,
     assunto: null,
     mensagem: null
   }
@@ -43,6 +47,15 @@ export class HomePage {
   remover(id: string){
     this.crudService.remove(id, 'recados');
     this.carregar();
+  }
+
+  selecionar(recado: any) {
+    this.id = recado.id;
+    this.recado = recado;
+  }
+
+  atualizar(){
+    this.crudService.update(this.id, this.recado, 'recados');
   }
 
 }
