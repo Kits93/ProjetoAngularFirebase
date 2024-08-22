@@ -1,17 +1,27 @@
 <ion-content [fullscreen]="true">
     <ion-row>
         <ion-col>
-
             <ion-item>
                 <ion-input label="Assunto" [(ngModel)]="this.recado.assunto"></ion-input>
             </ion-item>
-
             <ion-item>
                 <ion-input label="Mensagem" [(ngModel)]="this.recado.mensagem"></ion-input>
             </ion-item>
-
             <ion-button (click)="enviar()">Enviar Mensagem</ion-button>
+        </ion-col>
+    </ion-row>
 
+    <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-lg="6">
+            <ion-button (click)="carregar()">Carregar Mensagens</ion-button>
+            <ng-container *ngFor="let recado of this.recados">
+                <ion-item>
+                    <ion-label>
+                        <h1>{{ recado.assunto }}</h1>
+                        <h3>{{ recado.mensagem }}</h3>
+                    </ion-label>
+                </ion-item>
+            </ng-container>
         </ion-col>
     </ion-row>
 

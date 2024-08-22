@@ -11,6 +11,8 @@ import { MessageService } from '../services/message.service';
 })
 export class HomePage {
 
+  recados: any;
+
   recado = {
     assunto: null,
     mensagem: null
@@ -22,6 +24,16 @@ export class HomePage {
 
   enviar(){
     this.crudService.insert(this.recado, 'recados');
+  }
+
+  carregar() {
+    this.crudService.fetchAll('recados')
+    .then(response => {
+      console.log(response);
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
   }
 
 }
