@@ -10,6 +10,11 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  usuario: any = {
+    email: null,
+    senha: null
+  }
   
   id: any;
 
@@ -22,7 +27,8 @@ export class HomePage {
   recados: any = [];
 
   constructor(
-    public crudService: CrudService
+    public crudService: CrudService,
+    public authService: AuthenticateService
   ){}
 
   enviar(){
@@ -56,6 +62,14 @@ export class HomePage {
 
   atualizar(){
     this.crudService.update(this.id, this.recado, 'recados');
+  }
+
+  registrar(){
+    this.authService.register(this.usuario.email, this.usuario.senha);
+  }
+
+  login() {
+    this.authService.login(this.usuario.email, this.usuario.senha);
   }
 
 }

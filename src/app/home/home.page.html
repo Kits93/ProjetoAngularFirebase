@@ -44,5 +44,45 @@
 
     </ion-col>
    </ion-row>
+
+   <ion-row class="ion-justify-content-center">
+    <ion-col size="5">
+        <ion-item lines="none">
+            <ion-label>
+                <h1>Registrar-se</h1>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-input label="email" [(ngModel)]="this.usuario.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input label="senha" type="password" [(ngModel)]="this.usuario.senha"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="registrar()">Registrar-se</ion-button>
+    </ion-col>
+   </ion-row>
+
+   <ion-row class="ion-justify-content-center">
+    <ion-col size="5">
+        <ion-item lines="none">
+            <ion-label>
+                <h1>Acesso</h1>
+            </ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-input label="email" [(ngModel)]="this.usuario.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input label="senha" type="password" [(ngModel)]="this.usuario.senha"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="login()">Acessar</ion-button>
+    </ion-col>
+   </ion-row>
   
 </ion-content>
