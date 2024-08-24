@@ -11,5 +11,25 @@ import { MessageService } from '../services/message.service';
 })
 export class HomePage {
 
+  paises: any;
+
+  constructor() {
+    this.getPaisCode();
+  }
+
+  getPaisCode(){
+    fetch('https://restcountries.com/v3.1/all?fields=name,ccn3,flags')
+    .then(dados => dados.json())
+    .then(dados => {
+      console.log(dados);
+      this.paises = dados;
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(() => {
+      console.log('processo finalizado!')
+    })
+  }
 
 }

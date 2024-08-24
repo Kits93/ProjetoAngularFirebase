@@ -1,0 +1,16 @@
+.mouse-hover {
+    & h2,
+    & h3 {
+        transition: all 1s;
+    }
+}
+
+.mouse-hover:hover {
+    cursor: pointer;
+
+    & h2, 
+    & h3 {
+        color: red;
+        transition: all 1s;
+    }
+}
