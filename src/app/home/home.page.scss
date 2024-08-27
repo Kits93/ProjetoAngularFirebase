@@ -1,16 +1,29 @@
-.mouse-hover {
-    & h2,
-    & h3 {
+.on-mouse {
+    cursor: pointer;
+
+    & h2 { 
+        letter-spacing: none;
         transition: all 1s;
     }
-}
-
-.mouse-hover:hover {
-    cursor: pointer;
 
     & h2, 
     & h3 {
-        color: red;
+        color: white;
+        transition: all 0.5s;
+    }
+}
+
+.on-mouse:hover {
+    cursor: pointer;
+
+    & h2 { 
+        letter-spacing: 2px;
         transition: all 1s;
+    }
+
+    & h2, 
+    & h3 {
+        color: greenyellow;
+        transition: all 0.5s;
     }
 }

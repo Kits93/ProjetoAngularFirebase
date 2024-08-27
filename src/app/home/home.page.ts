@@ -12,14 +12,16 @@ import { MessageService } from '../services/message.service';
 export class HomePage {
 
   paises: any;
+  isLoading: boolean = true;
 
-  constructor() {
+  constructor(){
     this.getPaisCode();
   }
 
   getPaisCode(){
+    this.isLoading = true;
     fetch('https://restcountries.com/v3.1/all?fields=name,ccn3,flags')
-    .then(dados => dados.json())
+    .then( dados => dados.json() )
     .then(dados => {
       console.log(dados);
       this.paises = dados;
@@ -27,9 +29,10 @@ export class HomePage {
     .catch(erro => {
       console.log(erro);
     })
-    .finally(() => {
-      console.log('processo finalizado!')
-    })
+    .finally( () => {
+      this.isLoading = false;
+    } )
   }
+
 
 }
