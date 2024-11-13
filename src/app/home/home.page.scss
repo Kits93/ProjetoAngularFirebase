@@ -1,16 +1,35 @@
-// * { 
-//     outline: 1px solid red;
-// }
-
-.foto-perfil {
+.fundo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-radius: 16px;
-    outline: 5px solid white;
+    outline: 1px solid #fff;
+    min-height: 80vh;
+    margin: auto 5px;
 }
 
-.titulo-nome {
-    font-size: 3rem;
+.marte { background-image: url('https://i.pinimg.com/564x/28/4d/45/284d45bfccfe01b96cc4b51a7a461a2c.jpg'); }
+.venus { background-image: url('https://i.pinimg.com/564x/71/29/66/71296650c8ea5b9e9b3e399d6cc30dfd.jpg'); }
+.jupiter { background-image: url('https://i.pinimg.com/736x/62/0b/71/620b718b33403b2e96317c7a5806d11a.jpg'); }
+.saturno { background-image: url('https://i.pinimg.com/564x/37/e4/14/37e41486289fd7c262e8018ecf4c2abd.jpg'); }
+.solar { background-image: url('https://i.pinimg.com/564x/05/7a/43/057a43839670993ac39cfbae28dd3202.jpg'); }
+
+h1 {
+    font-size: 3.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    font-weight: bold;
 }
 
-.titulo-funcao {
-    font-size: 2rem;
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+ion-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }

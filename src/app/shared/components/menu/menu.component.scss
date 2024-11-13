@@ -1,0 +1,13 @@
+ion-header {
+    margin-bottom: 45px;
+    background: rgb(160,49,193);
+    background: radial-gradient(circle, rgba(160,49,193,1) 30%, rgba(4,41,64,1) 99%);
+}
+
+ion-item {
+    --background: none;
+    & ion-label {
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}

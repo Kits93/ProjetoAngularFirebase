@@ -10,6 +10,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'planetas',
+    loadChildren: () => import('./planetas/planetas.module').then( m => m.PlanetasPageModule)
   }
 ];
 
