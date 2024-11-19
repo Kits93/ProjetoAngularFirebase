@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-planetas',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetasPage implements OnInit {
 
-  constructor() { }
+  planeta: any = {
+    nome: null,
+    possui_populacao: null,
+    massa: null,
+    raio: null,
+    distancia_sol: null,
+    foto: null
+  }
+
+  constructor(
+    public crudService: CrudService
+  ) { }
 
   ngOnInit() {
+  }
+
+  salvar() {
+    console.log(this.planeta);
+    this.crudService.insert(this.planeta, 'planetas');
   }
 
 }
