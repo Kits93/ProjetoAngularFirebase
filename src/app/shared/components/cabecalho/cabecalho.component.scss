@@ -1,0 +1,19 @@
+.cabecalho {
+    height: 250px;
+    background-image: url('https://i.pinimg.com/736x/23/ab/4f/23ab4f395e1332636b7f6e0cd44b5baf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    & h1 {
+        font-size: 64px;
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px 5px black;
+    }
+}
