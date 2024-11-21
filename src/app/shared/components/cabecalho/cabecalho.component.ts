@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cabecalho',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecalho.component.scss'],
 })
 export class CabecalhoComponent  implements OnInit {
+
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
 
   constructor() { }
 
