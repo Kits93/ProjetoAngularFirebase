@@ -8,6 +8,7 @@ import { PersonagensPageRoutingModule } from './personagens-routing.module';
 
 import { PersonagensPage } from './personagens.page';
 import { MenuModule } from '../shared/components/menu/menu.module';
+import { CabecalhoModule } from '../shared/components/cabecalho/cabecalho.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MenuModule } from '../shared/components/menu/menu.module';
     FormsModule,
     IonicModule,
     PersonagensPageRoutingModule,
-    MenuModule
+    MenuModule,
+    CabecalhoModule
   ],
   declarations: [PersonagensPage]
 })
