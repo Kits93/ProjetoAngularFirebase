@@ -34,20 +34,46 @@
     <ion-col size="10" size-lg="8">
       <ion-card>
         <ng-container *ngFor="let planeta of this.planetas">
-          <ion-row>
-            <ion-col>ID: 1</ion-col>
-            <ion-col>Nome: {{ planeta.nome }}</ion-col>
-            <ion-col>População: 10000</ion-col>
-            <ion-col>Massa: 10000000</ion-col>
-            <ion-col>Raio: 5000</ion-col>
-            <ion-col>Distância Sol: 100</ion-col>
-            <ion-col>
-              <ion-item lines="none">
-                <ion-icon slot="end" name="pencil-outline"></ion-icon>
-                <ion-icon slot="end" name="trash-outline"></ion-icon>
-              </ion-item>
-            </ion-col>
-          </ion-row>
+          <ng-container *ngIf="this.crudService.isLoading">
+            <ion-row>
+              <ion-col>
+                <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+              </ion-col>
+              <ion-col>
+                <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+              </ion-col>
+              <ion-col>
+                <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+              </ion-col>
+              <ion-col>
+                <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+              </ion-col>
+              <ion-col>
+                <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-icon slot="end" name="pencil-outline"></ion-icon>
+                  <ion-icon slot="end" name="trash-outline" (click)="remover(planeta.id)"></ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+          <ng-container *ngIf="!this.crudService.isLoading">
+            <ion-row>
+              <ion-col>Nome: {{ planeta.nome }}</ion-col>
+              <ion-col>População: {{ planeta.possui_populacao }}</ion-col>
+              <ion-col>Massa: {{ planeta.massa }}</ion-col>
+              <ion-col>Raio: {{ planeta.raio }}</ion-col>
+              <ion-col>Distância Sol: {{ planeta.distancia_sol }}</ion-col>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-icon slot="end" name="pencil-outline"></ion-icon>
+                  <ion-icon slot="end" name="trash-outline" (click)="remover(planeta.id)"></ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ng-container>
         </ng-container>
       </ion-card>
     </ion-col>

@@ -31,6 +31,14 @@ export class PlanetasPage implements OnInit {
   salvar() {
     console.log(this.planeta);
     this.crudService.insert(this.planeta, 'planetas');
+    this.getPlanetas();
+  }
+
+  remover(id: string) {
+    this.crudService.remove(id, 'planetas')
+    .then(() => {
+      this.getPlanetas();
+    })
   }
 
   getPlanetas(){
